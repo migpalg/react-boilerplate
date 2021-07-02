@@ -38,7 +38,7 @@ export const Login: React.FC = () => {
           <Box marginTop={Number(!matches) && 2}>
             <Card>
               <CardContent>
-                <Typography align="center" variant="h5" component="h2">
+                <Typography align="center" variant="h2" component="h2">
                   Sign In
                 </Typography>
                 <Typography
@@ -81,11 +81,9 @@ export const Login: React.FC = () => {
                     variant="subtitle2"
                   >
                     Doesn't have an account?{" "}
-                    <Link component="span">
-                      <RouterLink to={`${routes.base}${routes.signUp}`}>
-                        Create one
-                      </RouterLink>
-                    </Link>
+                    <RouterLink to={`${routes.base}${routes.signUp}`}>
+                      <Link component="span">Create one</Link>
+                    </RouterLink>
                   </Typography>
                 </Box>
               </CardContent>
