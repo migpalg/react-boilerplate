@@ -11,9 +11,13 @@ import Typography from "@material-ui/core/Typography";
 
 // @packages
 import { useTheme, useMediaQuery } from "@material-ui/core";
+import { Link as RouterLink } from "react-router-dom";
 
 // @scripts
 import { useStyles } from "./login.styles";
+import { config } from "../../../../core";
+
+const routes = config.routes.auth;
 
 export const Login: React.FC = () => {
   const classes = useStyles();
@@ -70,6 +74,20 @@ export const Login: React.FC = () => {
                     </Button>
                   </Box>
                 </form>
+                <Box marginTop={2}>
+                  <Typography
+                    align="center"
+                    color="textSecondary"
+                    variant="subtitle2"
+                  >
+                    Doesn't have an account?{" "}
+                    <Link component="span">
+                      <RouterLink to={`${routes.base}${routes.signUp}`}>
+                        Create one
+                      </RouterLink>
+                    </Link>
+                  </Typography>
+                </Box>
               </CardContent>
             </Card>
           </Box>
