@@ -3,10 +3,10 @@ import React from "react";
 import { Container, Button, Typography } from "@material-ui/core";
 
 // @scripts
-import { useAppSelector } from "../../../../core/redux/hooks";
+import { Todo } from "../../models";
 
 export const TodoList: React.FC = () => {
-  const todos = useAppSelector(state => state.todos.todos);
+  const todos: Todo[] = [];
 
   return (
     <Container>
@@ -14,7 +14,7 @@ export const TodoList: React.FC = () => {
         Todos List
       </Typography>
       <ul>
-        {todos.map(todo => (
+        {todos.map((todo) => (
           <li key={`todo-${todo.id}`}>{todo.name}</li>
         ))}
       </ul>

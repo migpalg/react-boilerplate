@@ -1,10 +1,9 @@
 // @packages
 import React from "react";
 import ReactDOM from "react-dom";
-import { Provider as ReduxProvider } from "react-redux";
 
 // @scripts
-import { App, store } from "./core";
+import { App } from "./core";
 import reportWebVitals from "./reportWebVitals";
 
 // @styles
@@ -12,9 +11,7 @@ import "./core/scss/globals.scss";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ReduxProvider store={store}>
-      <App />
-    </ReduxProvider>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
