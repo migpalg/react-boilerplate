@@ -5,6 +5,7 @@ import { Switch, Route } from "react-router-dom";
 // @scripts
 import { config } from "./config";
 import { PrivateRoute } from "../features/auth/components";
+import { NotFound } from "../features/common/screens";
 
 // @lazy-routes
 const TodosRouter = React.lazy(() => import("../features/todos/router"));
@@ -15,6 +16,7 @@ export const RootRouter: React.FC = () => {
     <Switch>
       <PrivateRoute path={config.routes.todos.base} component={TodosRouter} />
       <Route path={config.routes.auth.base} component={AuthRouter} />
+      <Route component={NotFound} />
     </Switch>
   );
 };

@@ -4,6 +4,7 @@ import { Route, Switch, useRouteMatch } from "react-router-dom";
 // @scripts
 import { config } from "../../core/config";
 import { Login, SignUp } from "./screens";
+import { NotFound } from "../common/screens";
 
 const routes = config.routes.auth;
 
@@ -18,6 +19,7 @@ export const AuthRouter: React.FC = () => {
     <Switch>
       <Route path={`${url}${routes.login}`} component={Login} />
       <Route path={`${url}${routes.signUp}`} component={SignUp} />
+      <Route component={NotFound} />
     </Switch>
   );
 };
