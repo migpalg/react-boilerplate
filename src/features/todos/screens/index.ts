@@ -1,1 +1,1 @@
-export { TodoList } from "./todos-list/todos-list";
+export { TodoListScreen } from "./todos-list/todos-list";

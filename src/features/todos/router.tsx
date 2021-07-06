@@ -3,7 +3,7 @@ import React from "react";
 import { Switch, Route, useRouteMatch } from "react-router-dom";
 
 // @scripts
-import { TodoList } from "./screens";
+import { TodoListScreen } from "./screens";
 
 /**
  * Root router for todos feature
@@ -13,7 +13,7 @@ export const TodosRouter: React.FC = () => {
 
   return (
     <Switch>
-      <Route path={`${url}/`} component={TodoList} />
+      <Route path={`${url}/`} component={TodoListScreen} />
     </Switch>
   );
 };

@@ -12,6 +12,7 @@ import Typography from "@material-ui/core/Typography";
 // @packages
 import { useTheme, useMediaQuery } from "@material-ui/core";
 import { Link as RouterLink } from "react-router-dom";
+import { useForm, SubmitHandler } from "react-hook-form";
 
 // @scripts
 import { useStyles } from "./login.styles";
@@ -19,10 +20,20 @@ import { config } from "../../../../core";
 
 const routes = config.routes.auth;
 
+type LoginInputs = {
+  email: string;
+  password: string;
+};
+
 export const Login: React.FC = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up("md"));
+  const { register, handleSubmit } = useForm<LoginInputs>();
+
+  const onSubmit: SubmitHandler<LoginInputs> = (data) => {
+    // TODO: Handle login
+  };
 
   return (
     <Container>
@@ -48,7 +59,7 @@ export const Login: React.FC = () => {
                 >
                   Login into your account to get all the content
                 </Typography>
-                <form>
+                <form onSubmit={handleSubmit(onSubmit)}>
                   <TextField
                     fullWidth
                     id="email"
@@ -57,6 +68,7 @@ export const Login: React.FC = () => {
                     type="email"
                     variant="outlined"
                     autoFocus
+                    {...register("email")}
                   />
 
                   <TextField
@@ -66,10 +78,16 @@ export const Login: React.FC = () => {
                     margin="normal"
                     type="password"
                     variant="outlined"
+                    {...register("password")}
                   />
 
                   <Box marginTop={2}>
-                    <Button variant="contained" color="primary" fullWidth>
+                    <Button
+                      variant="contained"
+                      color="primary"
+                      type="submit"
+                      fullWidth
+                    >
                       Login
                     </Button>
                   </Box>

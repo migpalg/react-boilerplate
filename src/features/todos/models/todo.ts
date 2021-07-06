@@ -8,3 +8,5 @@ export interface Todo {
   dueDate: Date;
   completed: boolean;
 }
+
+export type PartialTodo = Omit<Todo, "id" | "completed">;

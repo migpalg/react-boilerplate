@@ -2,7 +2,8 @@
 import { InMemoryCache } from "@apollo/client";
 
 // @scripts
-import { authVar } from "./vars/auth-var";
+import { authVar } from "../../../features/auth/apollo/auth-var";
+import { todosVar } from "../../../features/todos/apollo/todos-var";
 
 export const cache = new InMemoryCache({
   typePolicies: {
@@ -11,6 +12,11 @@ export const cache = new InMemoryCache({
         user: {
           read() {
             return authVar();
+          },
+        },
+        todos: {
+          read() {
+            return todosVar();
           },
         },
       },
