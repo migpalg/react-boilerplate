@@ -14,8 +14,8 @@ const AuthRouter = React.lazy(() => import("../features/auth/router"));
 export const RootRouter: React.FC = () => {
   return (
     <Switch>
-      <PrivateRoute path={config.routes.todos.base} component={TodosRouter} />
       <Route path={config.routes.auth.base} component={AuthRouter} />
+      <PrivateRoute path={config.routes.todos.base} component={TodosRouter} />
       <Route component={NotFound} />
     </Switch>
   );
