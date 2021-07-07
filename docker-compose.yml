@@ -2,6 +2,8 @@ version: "3.9"
 services:
   app:
     image: app:latest
+    networks:
+      - app-network
     build:
       context: .
       dockerfile: Dockerfile
@@ -10,3 +12,6 @@ services:
       - "/app/node_modules"
     ports:
       - 8080:80
+networks:
+  app-network:
+    name: app-network
