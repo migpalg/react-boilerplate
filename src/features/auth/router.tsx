@@ -1,5 +1,5 @@
 // @packages
-import { Route, Switch, useRouteMatch } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 
 // @scripts
 import { config } from "../../core/config";
@@ -13,12 +13,10 @@ const routes = config.routes.auth;
  * feature
  */
 export const AuthRouter: React.FC = () => {
-  const { url } = useRouteMatch();
-
   return (
     <Switch>
-      <Route path={`${url}${routes.login}`} component={Login} />
-      <Route path={`${url}${routes.signUp}`} component={SignUp} />
+      <Route path={routes.login} component={Login} />
+      <Route path={routes.signUp} component={SignUp} />
       <Route component={NotFound} />
     </Switch>
   );

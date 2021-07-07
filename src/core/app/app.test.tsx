@@ -1,8 +1,11 @@
+// @packages
+import { render } from "@testing-library/react";
+
 // @scripts
 import { App } from "./app";
 
 describe("app unit testing", () => {
-  it("should render correctly", () => {
-    expect(true).toBeTruthy();
+  it("renders without crashing", () => {
+    render(<App />);
   });
 });

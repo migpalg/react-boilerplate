@@ -24,7 +24,7 @@ export const SignUp: React.FC = () => {
         </Typography>
       </Box>
 
-      <Grid container spacing={3}>
+      <Grid container spacing={3} component="form">
         <Grid item xs={12} md={6}>
           <TextField fullWidth id="name" label="Name" variant="outlined" />
         </Grid>
@@ -36,6 +36,7 @@ export const SignUp: React.FC = () => {
             label="Email"
             type="email"
             variant="outlined"
+            autoComplete="signup email"
           />
         </Grid>
 
@@ -46,6 +47,7 @@ export const SignUp: React.FC = () => {
             label="Password"
             type="password"
             variant="outlined"
+            autoComplete="signup password"
           />
         </Grid>
 
@@ -56,6 +58,7 @@ export const SignUp: React.FC = () => {
             label="Repeat password"
             type="password"
             variant="outlined"
+            autoComplete="signup repeat-password"
           />
         </Grid>
       </Grid>
@@ -69,7 +72,7 @@ export const SignUp: React.FC = () => {
       <Box marginTop={2}>
         <Typography variant="subtitle2" color="textSecondary" align="center">
           Already have an account?{" "}
-          <RouterLink to={`${routes.base}${routes.login}`}>
+          <RouterLink to={routes.login}>
             <Link component="span">Login Instead</Link>
           </RouterLink>
         </Typography>

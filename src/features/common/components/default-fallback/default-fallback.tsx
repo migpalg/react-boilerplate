@@ -1,5 +1,5 @@
-import LinearProgress from '@material-ui/core/LinearProgress';
+import { LinearProgress, LinearProgressProps } from "@material-ui/core";
 
-export const DefaultFallback: React.FC = () => {
-  return <LinearProgress />
+export const DefaultFallback: React.FC<LinearProgressProps> = (props) => {
+  return <LinearProgress {...props} />;
 };

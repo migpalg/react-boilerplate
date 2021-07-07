@@ -5,9 +5,8 @@ import { useLocation } from "react-router-dom";
 
 // @scripts
 import { config } from "../../../../core/config";
-import { AuthQueries } from "../../../../core/apollo/operations/queries";
 import { DefaultFallback } from "../../../common/components";
-import { User } from "../../models";
+import { GET_CURRENT_USER } from "../../apollo/operations/queries";
 
 const routes = config.routes.auth;
 
@@ -16,18 +15,16 @@ const routes = config.routes.auth;
  */
 export const PrivateRoute: React.FC<RouteProps> = (props) => {
   const location = useLocation();
-  const { data, loading, error } = useQuery<User>(AuthQueries.GET_CURRENT_AUTH);
+  const { data, loading, error } = useQuery(GET_CURRENT_USER);
 
   if (loading) {
     return <DefaultFallback />;
   }
 
-  if (!data || error) {
+  if (!data.user || error) {
     const requestedRoute = encodeURIComponent(location.pathname);
 
-    return (
-      <Redirect to={`${routes.base}${routes.login}?next=${requestedRoute}`} />
-    );
+    return <Redirect to={`${routes.login}?next=${requestedRoute}`} />;
   }
 
   return <Route {...props} />;

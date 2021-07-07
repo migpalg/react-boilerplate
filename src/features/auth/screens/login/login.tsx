@@ -99,7 +99,7 @@ export const Login: React.FC = () => {
                     variant="subtitle2"
                   >
                     Doesn't have an account?{" "}
-                    <RouterLink to={`${routes.base}${routes.signUp}`}>
+                    <RouterLink to={routes.signUp}>
                       <Link component="span">Create one</Link>
                     </RouterLink>
                   </Typography>
